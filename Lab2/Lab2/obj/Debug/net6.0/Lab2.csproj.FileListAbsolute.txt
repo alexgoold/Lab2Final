@@ -1,0 +1,15 @@
+C:\Users\sandy\Documents\GitHub\Lab2\Lab2\bin\Debug\net6.0\Lab2.exe
+C:\Users\sandy\Documents\GitHub\Lab2\Lab2\bin\Debug\net6.0\Lab2.deps.json
+C:\Users\sandy\Documents\GitHub\Lab2\Lab2\bin\Debug\net6.0\Lab2.runtimeconfig.json
+C:\Users\sandy\Documents\GitHub\Lab2\Lab2\bin\Debug\net6.0\Lab2.dll
+C:\Users\sandy\Documents\GitHub\Lab2\Lab2\bin\Debug\net6.0\Lab2.pdb
+C:\Users\sandy\Documents\GitHub\Lab2\Lab2\obj\Debug\net6.0\Lab2.csproj.AssemblyReference.cache
+C:\Users\sandy\Documents\GitHub\Lab2\Lab2\obj\Debug\net6.0\Lab2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sandy\Documents\GitHub\Lab2\Lab2\obj\Debug\net6.0\Lab2.AssemblyInfoInputs.cache
+C:\Users\sandy\Documents\GitHub\Lab2\Lab2\obj\Debug\net6.0\Lab2.AssemblyInfo.cs
+C:\Users\sandy\Documents\GitHub\Lab2\Lab2\obj\Debug\net6.0\Lab2.csproj.CoreCompileInputs.cache
+C:\Users\sandy\Documents\GitHub\Lab2\Lab2\obj\Debug\net6.0\Lab2.dll
+C:\Users\sandy\Documents\GitHub\Lab2\Lab2\obj\Debug\net6.0\refint\Lab2.dll
+C:\Users\sandy\Documents\GitHub\Lab2\Lab2\obj\Debug\net6.0\Lab2.pdb
+C:\Users\sandy\Documents\GitHub\Lab2\Lab2\obj\Debug\net6.0\Lab2.genruntimeconfig.cache
+C:\Users\sandy\Documents\GitHub\Lab2\Lab2\obj\Debug\net6.0\ref\Lab2.dll
