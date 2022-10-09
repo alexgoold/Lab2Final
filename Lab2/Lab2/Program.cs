@@ -23,7 +23,6 @@ namespace Lab2
             {
                 Console.WriteLine(text.PadLeft(Console.WindowWidth/2+text.Length/2));
             }
-
             void Login()
             {
                 while (true)
@@ -275,6 +274,7 @@ namespace Lab2
                                         }
                                         break;
                                     case ConsoleKey.Escape:
+                                        Console.Write("(S");
                                         items = false;
                                         break;
                                     default:
@@ -305,7 +305,7 @@ namespace Lab2
                             {
                                 Console.Clear();
                                 loggedInCustomer.PrintCartInfo(loggedInCustomer);
-                                Console.WriteLine($"Would you like to pay: {loggedInCustomer.CartPrice}?");
+                                Console.WriteLine($"Would you like to finalise transaction?");
                                 Console.WriteLine("(Y)es  (N)o");
                                 ConsoleKey yesOrNO = Console.ReadKey().Key;
                                 switch (yesOrNO)
@@ -358,6 +358,9 @@ namespace Lab2
                             loggedInCustomer = null;
                             Login();
                             break;
+                        default:
+                            Console.Write("(S");
+                            break;
                     }
                 }
             }
@@ -395,8 +398,6 @@ namespace Lab2
                     }
 
                 }
-
-
             }
         }
     }

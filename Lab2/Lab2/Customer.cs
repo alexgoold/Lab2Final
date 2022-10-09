@@ -31,9 +31,6 @@ namespace Lab2
             Password = password;
             _cart = new List<Product>();
         }
-
-
-
         public virtual void PrintCartInfo(Customer? customer)
         {
             IEnumerable<Product>? result = customer?.Cart.Distinct();
@@ -42,12 +39,12 @@ namespace Lab2
                 foreach (var product in result)
                 {
                     var productAmount = customer.Cart.Count(p => p.Name == product.Name);
-                    double total = (product.Price * productAmount);
+                    double total = Math.Round(product.Price * productAmount, 2);
 
-                    Console.WriteLine($"{product}......{product.Price} x {productAmount}......Total:{total}");
+                    Console.WriteLine($"{product}......{Math.Round(product.Price,2)} x {productAmount}......Total:{total}");
                     CartPrice += total;
                 }
-            Console.WriteLine($"Total = {CartPrice}");
+            Console.WriteLine($"Total = {Math.Round(CartPrice, 2)}");
             Console.ReadLine();
         }
     }

@@ -16,19 +16,8 @@ namespace Lab2
 
         public override void PrintCartInfo(Customer? customer)
         {
-            IEnumerable<Product>? result = customer?.Cart.Distinct();
-            CartPrice = 0;
-            if (result != null)
-                foreach (var product in result)
-                {
-                    var productAmount = customer.Cart.Count(p => p.Name == product.Name);
-                    double total = (product.Price * productAmount);
-
-                    Console.WriteLine($"{product}......{product.Price} x {productAmount}......Total:{total}");
-
-                    CartPrice += total;
-                }
-            Console.WriteLine($"Total = {CartPrice*0.90} ({CartPrice} before gold discount)");
+            base.PrintCartInfo(customer);
+            Console.WriteLine($"Silver Customer Total = {CartPrice*0.90} ({CartPrice} before gold discount)");
             Console.WriteLine($"You saved {String.Format("{0:0.##}",CartPrice -(CartPrice*0.90))}!");
             Console.ReadLine();
         }

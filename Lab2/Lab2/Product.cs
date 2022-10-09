@@ -12,6 +12,7 @@ namespace Lab2
         {
             Name = name;
             Price = price;
+            firstPrice = price;
         }
         public string Currency = "SEK";
 
@@ -19,6 +20,7 @@ namespace Lab2
 
         public double Price { get; set; }
 
+        public double firstPrice;
         public double ConvertToAud(Product product)
         {
             double AUDPrice;
@@ -35,9 +37,9 @@ namespace Lab2
                     Price = AUDPrice;
                     return Price;
                 default:
-                    Console.WriteLine("Currency already displaying in Australian Dollars");
                     return Price;
             }
+            
         }
 
         public double ConvertToUsd(Product product)
@@ -56,30 +58,15 @@ namespace Lab2
                     Price = USDPrice;
                     return Price;
                 default:
-                    Console.WriteLine("Currency already displaying in US Dollars");
                     return Price;
             }
         }
 
         public double ConvertToSek(Product product)
         {
-            double SEKPrice;
-            switch (Currency)
-            {
-                case "USD":
-                    SEKPrice = product.Price * 11.25;
-                    Currency = "SEK";
-                    Price = SEKPrice;
-                    return Price;
-                case "AUD":
-                    SEKPrice = product.Price * 7.15;
-                    Currency = "SEK";
-                    Price = SEKPrice;
-                    return Price;
-                default:
-                    Console.WriteLine("Currency already displaying in Swedish Krona");
-                    return Price;
-            }
+            Currency = "SEK";
+            Price = firstPrice;
+            return Price;
         }
         public override string ToString()
         {
