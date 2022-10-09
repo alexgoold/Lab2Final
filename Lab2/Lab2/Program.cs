@@ -196,8 +196,10 @@ namespace Lab2
                     Console.WriteLine("(S)hop");
                     Console.WriteLine("(V)iew Cart");
                     Console.WriteLine("(F)inalise purchases");
-                    Console.WriteLine("Change currency to (A)UD");
-                    Console.WriteLine("Change currency to (U)SD");
+                    Console.WriteLine("Change currency to:");
+                    Console.WriteLine("(A)ustralian dollars AUD");
+                    Console.WriteLine("(U)S Dollars USD");
+                    Console.WriteLine("(K)ronor SEK");
                     Console.WriteLine("(L)og out");
                     var choice = Console.ReadKey().Key;
                     switch (choice)
@@ -209,8 +211,8 @@ namespace Lab2
                                 Console.Clear();
                                 Console.WriteLine("Press the corresponding number to add to cart, press esc to return");
                                 Console.WriteLine($"1){product1.Name}................{Math.Round(product1.Price,2)} {product1.Currency}");
-                                Console.WriteLine($"2){product2.Name}................{Math.Round(product2.Price)} {product1.Currency}");
-                                Console.WriteLine($"3){product3.Name}................{Math.Round(product3.Price)} {product1.Currency}");
+                                Console.WriteLine($"2){product2.Name}................{Math.Round(product2.Price,2)} {product1.Currency}");
+                                Console.WriteLine($"3){product3.Name}................{Math.Round(product3.Price,2)} {product1.Currency}");
                                 var input = Console.ReadKey().Key;
                                 int amount;
                                 switch (input)
@@ -332,6 +334,7 @@ namespace Lab2
                                 product.ConvertToAud(product);
                             }
                             Console.WriteLine("Currency will now show in Australian dollars.");
+                            Thread.Sleep(1500);
                             break;
                         case ConsoleKey.U:
                             Console.Clear();
@@ -340,6 +343,16 @@ namespace Lab2
                                 product.ConvertToUsd(product);
                             }
                             Console.WriteLine("Currency will now show in American dollars.");
+                            Thread.Sleep(1500);
+                            break;
+                        case ConsoleKey.K:
+                            Console.Clear();
+                            foreach (var product in uniqueProducts)
+                            {
+                                product.ConvertToSek(product);
+                            }
+                            Console.WriteLine("Currency will now show in Kronor.");
+                            Thread.Sleep(1500);
                             break;
                         case ConsoleKey.L:
                             loggedInCustomer = null;
