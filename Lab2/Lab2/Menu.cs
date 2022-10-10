@@ -5,13 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Lab2;
 
-namespace Lab2
+namespace Lab2;
+
+public class Menu
 {
-    public class Menu
+    static void test()
     {
-        static void test()
-        {
-            Console.WriteLine("test it");
-        }
+        Console.WriteLine("test it");
     }
 }
