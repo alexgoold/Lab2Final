@@ -11,7 +11,7 @@ public class Program
         var customer2 = new Customer("Fnatte", "321");
         var customer3 = new Customer("Tjatte", "213");
         List<Customer?> customers = new(){customer1, customer2, customer3};
-        var product1 = new Product("Milk",15);
+        var product1 = new Product("Beer",15);
         var product2 = new Product("Bread",29);
         var product3 = new Product("Cheese",89);
         List<Product> uniqueProducts = new() { product1, product2, product3 };
