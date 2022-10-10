@@ -16,7 +16,9 @@ public class Program
         var product3 = new Product("Meese",89);
         List<Product> uniqueProducts = new() { product1, product2, product3 };
         Customer? loggedInCustomer = new(string.Empty, string.Empty);
-        var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Customers.txt");
+        var path = Path.Combine(Environment.CurrentDirectory, "Customers.txt");
+        //If the above doesn't work, uncomment below line
+        //var path = Path.Combine(GetFolderPath(Environment.SpecialFolder.Desktop) , "Customers.txt");
         CheckForCustomers();
         Login();
         void WriteCentered(string text)
@@ -29,7 +31,7 @@ public class Program
             {
                 Console.Clear();
                 WriteCentered("Welcome to the Brilk Shop");
-                Console.WriteLine("1) Existing Customer");
+                Console.WriteLine("1) Log in (Existing customer)");
                 Console.WriteLine("2) Create new customer");
                 Console.WriteLine("3) Exit Program");
                 if (int.TryParse(Console.ReadLine(), out int input))
@@ -37,7 +39,7 @@ public class Program
                     Console.WriteLine();
                     switch (input)
                     {
-                        case 1:
+                        case 1: 
                             Console.WriteLine("Username:");
                             string? username = Console.ReadLine();
                             var results = customers.Where(customer => customer.UserName == username);
