@@ -11,9 +11,9 @@ public class Program
         var customer2 = new Customer("Fnatte", "321");
         var customer3 = new Customer("Tjatte", "213");
         List<Customer?> customers = new(){customer1, customer2, customer3};
-        var product1 = new Product("Brilk",15);
-        var product2 = new Product("Chread",29);
-        var product3 = new Product("Meese",89);
+        var product1 = new Product("Milk",15);
+        var product2 = new Product("Bread",29);
+        var product3 = new Product("Cheese",89);
         List<Product> uniqueProducts = new() { product1, product2, product3 };
         Customer? loggedInCustomer = new(string.Empty, string.Empty);
         var path = Path.Combine(Environment.CurrentDirectory, "Customers.txt");
@@ -30,7 +30,7 @@ public class Program
             while (true)
             {
                 Console.Clear();
-                WriteCentered("Welcome to the Brilk Shop");
+                WriteCentered("Welcome to the Milk Shop");
                 Console.WriteLine("1) Log in (Existing customer)");
                 Console.WriteLine("2) Create new customer");
                 Console.WriteLine("3) Exit Program");
@@ -47,7 +47,7 @@ public class Program
                             {
                                 Console.WriteLine("Password:");
                                 string? password = Console.ReadLine();
-                                if (results.First().CheckPassword(password))
+                                if (password != null && results.First().CheckPassword(password))
                                 {
                                     loggedInCustomer=results.First();
                                     Console.WriteLine($"{loggedInCustomer.UserName} logged in");
