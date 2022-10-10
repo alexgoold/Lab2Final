@@ -129,9 +129,9 @@ namespace Lab2
                         continue;
                     }
                     WriteCentered("Choose a customer level");
-                    Console.WriteLine("(G)old");
-                    Console.WriteLine("(S)ilver");
-                    Console.WriteLine("(B)ronze");
+                    WriteColoured(ConsoleColor.Yellow,"(G)old");
+                    WriteColoured(ConsoleColor.DarkGray,"(S)ilver");
+                    WriteColoured(ConsoleColor.DarkRed,"(B)ronze");
                     Console.WriteLine("(N)ormal");
                     string input = Console.ReadLine().ToLower();
                     switch (input)
@@ -195,7 +195,7 @@ namespace Lab2
                     Console.WriteLine("(S)hop");
                     Console.WriteLine("(V)iew Cart");
                     Console.WriteLine("(F)inalise purchases");
-                    Console.WriteLine("Change currency to:");
+                    Console.WriteLine("\nChange currency to:");
                     Console.WriteLine("(A)ustralian dollars AUD");
                     Console.WriteLine("(U)S Dollars USD");
                     Console.WriteLine("(K)ronor SEK");
@@ -208,7 +208,8 @@ namespace Lab2
                             while (items)
                             {
                                 Console.Clear();
-                                Console.WriteLine("Press the corresponding number to add to cart, press esc to return");
+                                WriteCentered("Products");
+                                WriteCentered("Press the corresponding number to add to cart, press esc to return");
                                 Console.WriteLine($"1){product1.Name}................{Math.Round(product1.Price,2)} {product1.Currency}");
                                 Console.WriteLine($"2){product2.Name}................{Math.Round(product2.Price,2)} {product1.Currency}");
                                 Console.WriteLine($"3){product3.Name}................{Math.Round(product3.Price,2)} {product1.Currency}");
@@ -292,6 +293,7 @@ namespace Lab2
                             else
                             {
                                 Console.Clear();
+                                WriteCentered("View Cart");
                                 loggedInCustomer.PrintCartInfo(loggedInCustomer);
                             }
                             break;
@@ -304,6 +306,7 @@ namespace Lab2
                             else
                             {
                                 Console.Clear();
+                                WriteCentered("Complete purchases");
                                 loggedInCustomer.PrintCartInfo(loggedInCustomer);
                                 Console.WriteLine($"Would you like to finalise transaction?");
                                 Console.WriteLine("(Y)es  (N)o");

@@ -18,8 +18,8 @@ namespace Lab2
         public override void PrintCartInfo(Customer? customer)
         {
             base.PrintCartInfo(customer); 
-            Console.WriteLine($"Gold Customer Total = {CartPrice*0.85}");
-            Console.WriteLine($"You saved {String.Format("{0:0.##}",CartPrice -(CartPrice*0.85))}!");
+            Console.WriteLine($"Gold Customer Total = {Math.Round(CartPrice*0.85)}");
+            Console.WriteLine($"You saved {Math.Round(CartPrice -(CartPrice*0.85),2)}!");
             Console.ReadLine();
         }
     }
