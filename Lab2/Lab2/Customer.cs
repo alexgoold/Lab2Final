@@ -30,7 +30,7 @@ public class Customer
             foreach (var product in DistinctProducts)
             {
                 var productAmount = Cart.Count(p => p.Name == product.Name);
-                double total = Math.Round(product.Price * productAmount, 2);
+                double total = Math.Round((product.Price * productAmount), 2);
                 Console.WriteLine($"{product}......{Math.Round(product.Price,2)} x {productAmount}......Total:{total}");
                 CartPrice += total;
             }

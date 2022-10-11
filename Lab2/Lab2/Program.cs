@@ -280,6 +280,8 @@ public class Program
                         }
                         break;
                     case ConsoleKey.V:
+                        Console.Clear();
+
                         if (loggedInCustomer.Cart.Count < 1)
                         {
                             Console.WriteLine("Your cart is empty, please add something first!");
@@ -287,20 +289,20 @@ public class Program
                         }
                         else
                         {
-                            Console.Clear();
                             WriteCentered("View Cart");
                             loggedInCustomer.PrintCartInfo();
                         }
                         break;
                     case ConsoleKey.F:
+                        Console.Clear();
                         if (loggedInCustomer.Cart.Count < 1)
                         {
+                            
                             Console.WriteLine("Your cart is empty, please add something first!");
                             Console.ReadLine();
                         }
                         else
                         {
-                            Console.Clear();
                             WriteCentered("Complete purchases");
                             loggedInCustomer.PrintCartInfo();
                             Console.WriteLine($"Would you like to finalise transaction?");
