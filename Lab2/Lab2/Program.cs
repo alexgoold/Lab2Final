@@ -137,7 +137,7 @@ public class Program
                         customers.Add(goldCustomer);
                         using (StreamWriter sw = File.AppendText(path))
                         {
-                            sw.WriteLine(goldCustomer.ToString());
+                            sw.WriteLine($"{goldCustomer.UserName},{goldCustomer.Password}");
 
                         }
                         loggedInCustomer = goldCustomer;
@@ -147,7 +147,7 @@ public class Program
                         customers.Add(silverCustomer);
                         using (StreamWriter sw = File.AppendText(path))
                         {
-                            sw.WriteLine(silverCustomer.ToString());
+                            sw.WriteLine($"{silverCustomer.UserName},{silverCustomer.Password}");
 
                         }
                         loggedInCustomer = silverCustomer;
@@ -157,18 +157,17 @@ public class Program
                         customers.Add(bronzeCustomer);
                         using (StreamWriter sw = File.AppendText(path))
                         {
-                            sw.WriteLine(bronzeCustomer.ToString());
+                            sw.WriteLine($"{bronzeCustomer.UserName},{bronzeCustomer.Password}");
 
                         }
                         loggedInCustomer = bronzeCustomer;
                         break;
                     case "n":
-                        var newCustomer = new SilverCustomer(newUsername, newPassword);
+                        var newCustomer = new Customer(newUsername, newPassword);
                         customers.Add(newCustomer);
                         using (StreamWriter sw = File.AppendText(path))
                         {
-                            sw.WriteLine(newCustomer.ToString());
-
+                            sw.WriteLine($"{newCustomer.UserName},{newCustomer.Password}");
                         }
                         loggedInCustomer = newCustomer;
                         break;
@@ -190,11 +189,12 @@ public class Program
                 Console.WriteLine("(S)hop");
                 Console.WriteLine("(V)iew Cart");
                 Console.WriteLine("(F)inalise purchases");
+                Console.WriteLine("(C)ustomer info");
+                Console.WriteLine("(L)og out");
                 Console.WriteLine("\nChange currency to:");
                 Console.WriteLine("(A)ustralian dollars AUD");
                 Console.WriteLine("(U)S Dollars USD");
                 Console.WriteLine("(K)ronor SEK");
-                Console.WriteLine("(L)og out");
                 var choice = Console.ReadKey().Key;
                 switch (choice)
                 {
@@ -289,7 +289,7 @@ public class Program
                         {
                             Console.Clear();
                             WriteCentered("View Cart");
-                            loggedInCustomer.PrintCartInfo(loggedInCustomer);
+                            loggedInCustomer.PrintCartInfo();
                         }
                         break;
                     case ConsoleKey.F:
@@ -302,7 +302,7 @@ public class Program
                         {
                             Console.Clear();
                             WriteCentered("Complete purchases");
-                            loggedInCustomer.PrintCartInfo(loggedInCustomer);
+                            loggedInCustomer.PrintCartInfo();
                             Console.WriteLine($"Would you like to finalise transaction?");
                             Console.WriteLine("(Y)es  (N)o");
                             ConsoleKey yesOrNO = Console.ReadKey().Key;
@@ -356,6 +356,12 @@ public class Program
                         loggedInCustomer = null;
                         Login();
                         break;
+                    case ConsoleKey.C:
+                        Console.Clear();
+                        WriteCentered("Customer Info");
+                        loggedInCustomer.ToString();
+                        Console.ReadLine();
+                        break;
                     default:
                         Console.Write("(S");
                         break;
@@ -369,7 +375,7 @@ public class Program
                 StreamWriter sw = new(path);
                 foreach (var customer in customers)
                 {
-                    sw.WriteLine(customer.ToString());
+                    sw.WriteLine($"{customer.UserName},{customer.Password}");
                 }
                 sw.Close();
             }
@@ -392,9 +398,7 @@ public class Program
                     }
                     var newCustomer = new Customer(userPass[0], userPass[1]);
                     customers.Add(newCustomer);
-
                 }
-
             }
         }
         void WriteColoured(ConsoleColor color, string text)

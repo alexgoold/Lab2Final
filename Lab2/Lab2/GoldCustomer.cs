@@ -11,13 +11,13 @@ public class GoldCustomer : Customer
 
     public GoldCustomer(string? userName, string? password) : base(userName, password)
     {
-
+        RewardLevel = "Gold";
     }
 
 
-    public override void PrintCartInfo(Customer? customer)
+    public override void PrintCartInfo()
     {
-        base.PrintCartInfo(customer); 
+        base.PrintCartInfo(); 
         Console.WriteLine($"Gold Customer Total = {Math.Round(CartPrice*0.85)}");
         Console.WriteLine($"You saved {Math.Round(CartPrice -(CartPrice*0.85),2)}!");
         Console.ReadLine();

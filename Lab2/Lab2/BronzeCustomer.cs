@@ -10,13 +10,11 @@ public class BronzeCustomer : Customer
 {
     public BronzeCustomer(string? userName, string? password) : base(userName, password)
     {
-
+        RewardLevel = "Bronze";
     }
-
-
-    public override void PrintCartInfo(Customer? customer)
+    public override void PrintCartInfo()
     {
-        base.PrintCartInfo(customer);
+        base.PrintCartInfo();
         Console.WriteLine($"Bronze Customer Total = {Math.Round(CartPrice * 0.95)}");
         // $"({Math.Round(CartPrice)} before bronze discount)");
         Console.WriteLine($"You saved {Math.Round(CartPrice -(CartPrice*0.95),2)}!");

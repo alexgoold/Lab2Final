@@ -11,43 +11,49 @@ public class Customer
 {
     public string? UserName { get; private set; }
 
+    public string RewardLevel;
     public string? Password { get; set; }
     public double CartPrice;
-
     private List<Product> _cart;
-    public List<Product> Cart
-    {
-        get { return _cart; }
-    }
-
-    public override string ToString()
-    {
-        return UserName + "," + Password;
-    }
-
+    public List<Product> Cart => _cart;
+    public IEnumerable<Product>? DistinctProducts => Cart.Distinct();
     public Customer(string? userName, string? password)
     {
         UserName = userName;
         Password = password;
+        RewardLevel = "Normal";
         _cart = new List<Product>();
     }
-    public virtual void PrintCartInfo(Customer? customer)
+    public virtual void PrintCartInfo()
     {
-        IEnumerable<Product>? result = customer?.Cart.Distinct();
         CartPrice = 0;
-        if (result != null)
-            foreach (var product in result)
+            foreach (var product in DistinctProducts)
             {
-                var productAmount = customer.Cart.Count(p => p.Name == product.Name);
+                var productAmount = Cart.Count(p => p.Name == product.Name);
                 double total = Math.Round(product.Price * productAmount, 2);
-
                 Console.WriteLine($"{product}......{Math.Round(product.Price,2)} x {productAmount}......Total:{total}");
                 CartPrice += total;
             }
         Console.WriteLine($"Total = {Math.Round(CartPrice, 2)}");
         Console.ReadLine();
     }
+    public override string ToString()
+    {
+        string output = $"Username:{UserName}\nPassword:{Password}\nReward Level:{RewardLevel}\n";
+        if (Cart.Count < 1)
+        {
+            Console.WriteLine(output + "Cart currently Empty");
+            return output;
+        }
+        foreach (var product in DistinctProducts)
+        {
+            var productAmount = Cart.Count(p => p.Name == product.Name);
 
+            output += $"{product} x {productAmount}\n";
+        }
+        Console.WriteLine(output);
+        return output;
+    }
     public bool CheckPassword(string password)
     {
         var attemptsRemaining = 3;
