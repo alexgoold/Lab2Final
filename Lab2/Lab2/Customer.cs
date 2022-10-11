@@ -10,7 +10,6 @@ namespace Lab2;
 public class Customer
 {
     public string? UserName { get; private set; }
-
     public string RewardLevel;
     public string? Password { get; set; }
     public double CartPrice;
@@ -48,7 +47,6 @@ public class Customer
         foreach (var product in DistinctProducts)
         {
             var productAmount = Cart.Count(p => p.Name == product.Name);
-
             output += $"{product} x {productAmount}\n";
         }
         Console.WriteLine(output);

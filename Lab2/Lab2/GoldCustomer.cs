@@ -8,13 +8,10 @@ namespace Lab2;
 
 public class GoldCustomer : Customer
 {
-
     public GoldCustomer(string? userName, string? password) : base(userName, password)
     {
         RewardLevel = "Gold";
     }
-
-
     public override void PrintCartInfo()
     {
         base.PrintCartInfo(); 

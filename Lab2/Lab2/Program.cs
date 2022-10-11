@@ -1,7 +1,4 @@
-﻿using System.Globalization;
-using System.Reflection.Metadata;
-using System.Threading.Channels;
-namespace Lab2;
+﻿namespace Lab2;
 
 public class Program
 {
@@ -10,20 +7,18 @@ public class Program
         var customer1 = new Customer("Knatte", "123");
         var customer2 = new Customer("Fnatte", "321");
         var customer3 = new Customer("Tjatte", "213");
-        List<Customer?> customers = new(){customer1, customer2, customer3};
-        var product1 = new Product("Beer",15);
-        var product2 = new Product("Bread",29);
-        var product3 = new Product("Cheese",89);
+        List<Customer?> customers = new() { customer1, customer2, customer3 };
+        var product1 = new Product("Beer", 15);
+        var product2 = new Product("Bread", 29);
+        var product3 = new Product("Cheese", 89);
         List<Product> uniqueProducts = new() { product1, product2, product3 };
         Customer? loggedInCustomer = new(string.Empty, string.Empty);
         var path = Path.Combine(Environment.CurrentDirectory, "Customers.txt");
-        //If the above doesn't work, uncomment below line
-        //var path = Path.Combine(GetFolderPath(Environment.SpecialFolder.Desktop) , "Customers.txt");
         CheckForCustomers();
         Login();
         void WriteCentered(string text)
         {
-            Console.WriteLine(text.PadLeft(Console.WindowWidth/2+text.Length/2));
+            Console.WriteLine(text.PadLeft(Console.WindowWidth / 2 + text.Length / 2));
         }
         void Login()
         {
@@ -39,7 +34,7 @@ public class Program
                     Console.WriteLine();
                     switch (input)
                     {
-                        case 1: 
+                        case 1:
                             Console.WriteLine("Username:");
                             string? username = Console.ReadLine();
                             var results = customers.Where(customer => customer.UserName == username);
@@ -49,7 +44,7 @@ public class Program
                                 string? password = Console.ReadLine();
                                 if (password != null && results.First().CheckPassword(password))
                                 {
-                                    loggedInCustomer=results.First();
+                                    loggedInCustomer = results.First();
                                     Console.WriteLine($"{loggedInCustomer.UserName} logged in");
                                     Shopping();
                                 }
@@ -92,7 +87,7 @@ public class Program
         }
         void RegisterCustomer()
         {
-            while(true)
+            while (true)
             {
                 Console.WriteLine("Username:");
                 var user = Console.ReadLine();
@@ -125,9 +120,9 @@ public class Program
                     continue;
                 }
                 WriteCentered("Choose a customer level");
-                WriteColoured(ConsoleColor.Yellow,"(G)old");
-                WriteColoured(ConsoleColor.DarkGray,"(S)ilver");
-                WriteColoured(ConsoleColor.DarkRed,"(B)ronze");
+                WriteColoured(ConsoleColor.Yellow, "(G)old");
+                WriteColoured(ConsoleColor.DarkGray, "(S)ilver");
+                WriteColoured(ConsoleColor.DarkRed, "(B)ronze");
                 Console.WriteLine("(N)ormal");
                 string input = Console.ReadLine().ToLower();
                 switch (input)
@@ -205,9 +200,9 @@ public class Program
                             Console.Clear();
                             WriteCentered("Products");
                             WriteCentered("Press the corresponding number to add to cart, press esc to return");
-                            Console.WriteLine($"1){product1.Name}................{Math.Round(product1.Price,2)} {product1.Currency}");
-                            Console.WriteLine($"2){product2.Name}................{Math.Round(product2.Price,2)} {product1.Currency}");
-                            Console.WriteLine($"3){product3.Name}................{Math.Round(product3.Price,2)} {product1.Currency}");
+                            Console.WriteLine($"1){product1.Name}................{Math.Round(product1.Price, 2)} {product1.Currency}");
+                            Console.WriteLine($"2){product2.Name}................{Math.Round(product2.Price, 2)} {product1.Currency}");
+                            Console.WriteLine($"3){product3.Name}................{Math.Round(product3.Price, 2)} {product1.Currency}");
                             var input = Console.ReadKey().Key;
                             int amount;
                             switch (input)
@@ -281,7 +276,6 @@ public class Program
                         break;
                     case ConsoleKey.V:
                         Console.Clear();
-
                         if (loggedInCustomer.Cart.Count < 1)
                         {
                             Console.WriteLine("Your cart is empty, please add something first!");
@@ -297,7 +291,7 @@ public class Program
                         Console.Clear();
                         if (loggedInCustomer.Cart.Count < 1)
                         {
-                            
+
                             Console.WriteLine("Your cart is empty, please add something first!");
                             Console.ReadLine();
                         }

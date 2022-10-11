@@ -15,11 +15,8 @@ public class Product
         firstPrice = price;
     }
     public string Currency = "SEK";
-
     public string Name { get; set; }
-
     public double Price { get; set; }
-
     public double firstPrice;
     public double ConvertToAud(Product product)
     {
@@ -39,7 +36,6 @@ public class Product
             default:
                 return Price;
         }
-            
     }
 
     public double ConvertToUsd(Product product)
@@ -61,7 +57,6 @@ public class Product
                 return Price;
         }
     }
-
     public double ConvertToSek(Product product)
     {
         Currency = "SEK";
@@ -72,8 +67,4 @@ public class Product
     {
         return Name;
     }
-
-
-
-
 }

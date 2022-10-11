@@ -12,8 +12,6 @@ public class SilverCustomer : Customer
     {
         RewardLevel = "Silver";
     }
-
-
     public override void PrintCartInfo()
     {
         base.PrintCartInfo();
